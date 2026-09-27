@@ -1,0 +1,2083 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cake House</title>
+<meta name="description" content="Fresh homemade cakes in Armori, Gadchiroli. Chocolate, Black Forest, Red Velvet & more. Easy WhatsApp ordering. Home delivery available.">
+<meta name="theme-color" content="#3B2314">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Playfair+Display:wght@600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   DESIGN TOKENS
+   ============================================================ */
+:root{
+  --cream:#FFF9F4;
+  --cream-2:#FDF2E9;
+  --white:#ffffff;
+  --choco:#3B2314;
+  --choco-2:#5A3620;
+  --brown:#7B4B2A;
+  --pink:#F6C6CE;
+  --pink-soft:#FDEEF1;
+  --gold:#C9A227;
+  --gold-soft:#EBD9A0;
+  --text:#3B2314;
+  --muted:#8A6A55;
+  --line:#EFE0D5;
+  --wa:#25D366;
+  --wa-dark:#1EBE5D;
+
+  --radius:22px;
+  --radius-sm:14px;
+  --shadow:0 8px 24px rgba(59,35,20,.07);
+  --shadow-md:0 14px 34px rgba(59,35,20,.11);
+  --shadow-lg:0 24px 60px rgba(59,35,20,.18);
+  --header-h:72px;
+}
+
+/* ============================================================
+   RESET / BASE
+   ============================================================ */
+*,*::before,*::after{box-sizing:border-box;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+body{
+  margin:0;
+  background:var(--cream);
+  color:var(--text);
+  font-family:'Poppins','Noto Sans Devanagari',system-ui,-apple-system,sans-serif;
+  font-size:16px;
+  line-height:1.65;
+  overflow-x:hidden;
+}
+html[lang="mr"] body{
+  font-family:'Noto Sans Devanagari','Poppins',system-ui,sans-serif;
+  font-size:17px;
+  line-height:1.8;
+}
+img{max-width:100%;display:block;}
+a{text-decoration:none;color:inherit;}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit;}
+h1,h2,h3,h4{margin:0;line-height:1.25;font-weight:700;}
+p{margin:0;}
+ul{margin:0;padding:0;list-style:none;}
+
+.container{
+  width:100%;
+  max-width:1180px;
+  margin-inline:auto;
+  padding-inline:20px;
+}
+
+section{scroll-margin-top:calc(var(--header-h) + 12px);}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:13px 24px;
+  border-radius:100px;
+  font-size:.95rem;
+  font-weight:600;
+  letter-spacing:.2px;
+  transition:transform .22s ease, box-shadow .22s ease, background .22s ease, color .22s ease;
+  white-space:nowrap;
+  line-height:1.2;
+}
+.btn:active{transform:scale(.97);}
+
+.btn-primary{
+  background:linear-gradient(135deg,var(--choco),var(--brown));
+  color:#fff;
+  box-shadow:0 10px 24px rgba(59,35,20,.25);
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 32px rgba(59,35,20,.32);}
+
+.btn-gold{
+  background:linear-gradient(135deg,var(--gold),#E0BC55);
+  color:#3B2314;
+  box-shadow:0 10px 24px rgba(201,162,39,.3);
+}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 16px 32px rgba(201,162,39,.42);}
+
+.btn-outline{
+  background:#fff;
+  color:var(--choco);
+  border:1.5px solid var(--line);
+}
+.btn-outline:hover{
+  border-color:var(--choco);
+  background:var(--cream-2);
+  transform:translateY(-2px);
+}
+
+.btn-wa{
+  background:var(--wa);
+  color:#fff;
+  box-shadow:0 10px 22px rgba(37,211,102,.28);
+}
+.btn-wa:hover{background:var(--wa-dark);transform:translateY(-2px);box-shadow:0 16px 30px rgba(37,211,102,.4);}
+
+.btn-block{width:100%;}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.site-header{
+  position:sticky;
+  top:0;
+  z-index:120;
+  background:rgba(255,249,244,.92);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.header-inner{
+  height:var(--header-h);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+}
+.brand{display:flex;align-items:center;gap:11px;flex-shrink:0;}
+.brand-logo{
+  width:44px;height:44px;
+  display:grid;place-items:center;
+  font-size:1.4rem;
+  border-radius:14px;
+  background:linear-gradient(135deg,var(--pink-soft),var(--cream-2));
+  border:1px solid var(--line);
+  box-shadow:var(--shadow);
+}
+.brand-text{display:flex;flex-direction:column;line-height:1.15;}
+.brand-text strong{
+  font-size:1.02rem;
+  font-weight:700;
+  color:var(--choco);
+  letter-spacing:-.2px;
+}
+.brand-text small{
+  font-size:.7rem;
+  color:var(--muted);
+  letter-spacing:.5px;
+  text-transform:uppercase;
+}
+
+.nav{display:flex;align-items:center;gap:6px;}
+.nav a{
+  padding:9px 15px;
+  border-radius:100px;
+  font-size:.9rem;
+  font-weight:500;
+  color:var(--choco-2);
+  transition:background .2s, color .2s;
+}
+.nav a:hover{background:var(--pink-soft);color:var(--choco);}
+
+.header-actions{display:flex;align-items:center;gap:10px;}
+
+.lang-switch{
+  display:flex;
+  align-items:center;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:100px;
+  padding:3px;
+  box-shadow:var(--shadow);
+}
+.lang-switch button{
+  padding:6px 13px;
+  border-radius:100px;
+  font-size:.8rem;
+  font-weight:600;
+  color:var(--muted);
+  transition:all .22s ease;
+  line-height:1.3;
+}
+.lang-switch button.active{
+  background:linear-gradient(135deg,var(--choco),var(--brown));
+  color:#fff;
+  box-shadow:0 4px 12px rgba(59,35,20,.25);
+}
+
+.cart-btn{
+  position:relative;
+  display:flex;
+  align-items:center;
+  gap:7px;
+  padding:9px 16px;
+  border-radius:100px;
+  background:#fff;
+  border:1px solid var(--line);
+  font-size:.85rem;
+  font-weight:600;
+  color:var(--choco);
+  box-shadow:var(--shadow);
+  transition:transform .2s, box-shadow .2s;
+}
+.cart-btn:hover{transform:translateY(-2px);box-shadow:var(--shadow-md);}
+.cart-btn svg{width:18px;height:18px;}
+.cart-count{
+  min-width:20px;height:20px;
+  padding:0 5px;
+  display:grid;place-items:center;
+  border-radius:100px;
+  background:var(--gold);
+  color:#3B2314;
+  font-size:.7rem;
+  font-weight:700;
+  line-height:1;
+}
+.cart-count[data-empty="true"]{background:var(--line);color:var(--muted);}
+
+.hamburger{
+  display:none;
+  width:42px;height:42px;
+  border-radius:12px;
+  background:#fff;
+  border:1px solid var(--line);
+  place-items:center;
+  box-shadow:var(--shadow);
+}
+.hamburger span{
+  display:block;
+  width:18px;height:2px;
+  margin:3px auto;
+  background:var(--choco);
+  border-radius:2px;
+  transition:.25s;
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{
+  position:relative;
+  padding:64px 0 76px;
+  overflow:hidden;
+  background:
+    radial-gradient(900px 420px at 88% 8%, var(--pink-soft) 0%, transparent 62%),
+    radial-gradient(700px 400px at 5% 92%, #FDF0E2 0%, transparent 60%),
+    var(--cream);
+}
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:radial-gradient(var(--gold-soft) 1px, transparent 1px);
+  background-size:34px 34px;
+  opacity:.28;
+  pointer-events:none;
+}
+.hero-inner{
+  position:relative;
+  z-index:2;
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:52px;
+  align-items:center;
+}
+.hero-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:7px 16px;
+  border-radius:100px;
+  background:#fff;
+  border:1px solid var(--line);
+  font-size:.78rem;
+  font-weight:600;
+  color:var(--brown);
+  letter-spacing:.4px;
+  box-shadow:var(--shadow);
+  margin-bottom:20px;
+}
+.hero-badge .dot{
+  width:8px;height:8px;border-radius:50%;
+  background:var(--wa);
+  box-shadow:0 0 0 4px rgba(37,211,102,.18);
+}
+.hero h1{
+  font-family:'Playfair Display','Noto Sans Devanagari',serif;
+  font-size:clamp(2rem,4.6vw,3.3rem);
+  color:var(--choco);
+  letter-spacing:-.8px;
+  margin-bottom:16px;
+}
+html[lang="mr"] .hero h1{
+  font-family:'Noto Sans Devanagari','Playfair Display',serif;
+  letter-spacing:0;
+  line-height:1.4;
+}
+.hero p.lead{
+  font-size:1.08rem;
+  color:var(--muted);
+  max-width:520px;
+  margin-bottom:30px;
+}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:30px;}
+
+.hero-trust{
+  display:flex;
+  flex-wrap:wrap;
+  gap:22px;
+  padding-top:22px;
+  border-top:1px dashed var(--line);
+}
+.hero-trust div{display:flex;flex-direction:column;}
+.hero-trust strong{font-size:1.15rem;color:var(--choco);}
+.hero-trust span{font-size:.78rem;color:var(--muted);}
+
+.hero-visual{position:relative;}
+.hero-visual img{
+  width:100%;
+  aspect-ratio:1/1;
+  object-fit:cover;
+  border-radius:32px;
+  box-shadow:var(--shadow-lg);
+  border:6px solid #fff;
+}
+.hero-float{
+  position:absolute;
+  bottom:-18px;
+  left:-16px;
+  background:#fff;
+  border-radius:18px;
+  padding:14px 18px;
+  box-shadow:var(--shadow-lg);
+  border:1px solid var(--line);
+  display:flex;
+  align-items:center;
+  gap:12px;
+  animation:floaty 4s ease-in-out infinite;
+}
+@keyframes floaty{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-9px);}
+}
+.hero-float .ico{font-size:1.6rem;}
+.hero-float strong{display:block;font-size:.88rem;color:var(--choco);}
+.hero-float span{font-size:.74rem;color:var(--muted);}
+
+/* ============================================================
+   SECTION HEADINGS
+   ============================================================ */
+.section{padding:76px 0;}
+.section-head{
+  text-align:center;
+  max-width:660px;
+  margin:0 auto 46px;
+}
+.eyebrow{
+  display:inline-block;
+  font-size:.74rem;
+  font-weight:700;
+  letter-spacing:2.2px;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:12px;
+}
+html[lang="mr"] .eyebrow{letter-spacing:.6px;text-transform:none;font-size:.82rem;}
+.section-head h2{
+  font-family:'Playfair Display','Noto Sans Devanagari',serif;
+  font-size:clamp(1.65rem,3.4vw,2.4rem);
+  color:var(--choco);
+  letter-spacing:-.5px;
+  margin-bottom:12px;
+}
+html[lang="mr"] .section-head h2{
+  font-family:'Noto Sans Devanagari','Playfair Display',serif;
+  letter-spacing:0;
+}
+.section-head p{color:var(--muted);font-size:.98rem;}
+
+/* ============================================================
+   PRODUCTS
+   ============================================================ */
+.products{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:26px;
+}
+.card{
+  flex:1 1 310px;
+  max-width:360px;
+  background:#fff;
+  border-radius:var(--radius);
+  border:1px solid var(--line);
+  box-shadow:var(--shadow);
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  transition:transform .3s cubic-bezier(.4,0,.2,1), box-shadow .3s;
+}
+.card:hover{transform:translateY(-7px);box-shadow:var(--shadow-lg);}
+
+.card-img{position:relative;overflow:hidden;background:var(--cream-2);}
+.card-img img{
+  width:100%;
+  aspect-ratio:4/3;
+  object-fit:cover;
+  transition:transform .55s cubic-bezier(.4,0,.2,1);
+}
+.card:hover .card-img img{transform:scale(1.07);}
+
+.price-tag{
+  position:absolute;
+  top:14px;right:14px;
+  background:rgba(255,255,255,.95);
+  backdrop-filter:blur(8px);
+  color:var(--choco);
+  font-weight:700;
+  font-size:.92rem;
+  padding:7px 14px;
+  border-radius:100px;
+  box-shadow:0 6px 16px rgba(59,35,20,.16);
+  border:1px solid var(--line);
+}
+.card-tag{
+  position:absolute;
+  top:14px;left:14px;
+  background:linear-gradient(135deg,var(--gold),#E0BC55);
+  color:#3B2314;
+  font-size:.68rem;
+  font-weight:700;
+  letter-spacing:.6px;
+  text-transform:uppercase;
+  padding:5px 12px;
+  border-radius:100px;
+}
+
+.card-body{padding:20px 20px 22px;display:flex;flex-direction:column;flex:1;}
+.card-title{
+  font-size:1.08rem;
+  color:var(--choco);
+  margin-bottom:3px;
+  letter-spacing:-.2px;
+}
+.card-sub{
+  font-size:.84rem;
+  color:var(--gold);
+  font-weight:600;
+  margin-bottom:10px;
+}
+.card-desc{
+  font-size:.85rem;
+  color:var(--muted);
+  line-height:1.6;
+  margin-bottom:16px;
+  flex:1;
+}
+
+.weights{
+  display:flex;
+  gap:6px;
+  padding:4px;
+  background:var(--cream-2);
+  border-radius:100px;
+  margin-bottom:14px;
+}
+.w-btn{
+  flex:1;
+  padding:8px 6px;
+  border-radius:100px;
+  font-size:.8rem;
+  font-weight:600;
+  color:var(--muted);
+  transition:all .22s ease;
+  line-height:1.3;
+}
+.w-btn.active{
+  background:#fff;
+  color:var(--choco);
+  box-shadow:0 3px 10px rgba(59,35,20,.13);
+}
+
+.card-actions{display:flex;flex-direction:column;gap:9px;}
+.card-actions .btn{padding:11px 18px;font-size:.86rem;}
+
+/* ============================================================
+   WHY CHOOSE US
+   ============================================================ */
+.why{background:linear-gradient(180deg,var(--cream) 0%,var(--cream-2) 100%);}
+.why-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:22px;
+}
+.why-card{
+  background:#fff;
+  border-radius:var(--radius);
+  padding:28px 24px;
+  border:1px solid var(--line);
+  box-shadow:var(--shadow);
+  text-align:center;
+  transition:transform .3s, box-shadow .3s;
+}
+.why-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-md);}
+.why-ico{
+  width:60px;height:60px;
+  margin:0 auto 16px;
+  display:grid;place-items:center;
+  border-radius:20px;
+  font-size:1.6rem;
+  background:linear-gradient(135deg,var(--pink-soft),var(--cream-2));
+  border:1px solid var(--line);
+}
+.why-card h3{font-size:1rem;color:var(--choco);margin-bottom:7px;}
+.why-card p{font-size:.85rem;color:var(--muted);}
+
+/* ============================================================
+   LOCAL AREA BAND
+   ============================================================ */
+.local-band{
+  background:linear-gradient(135deg,var(--choco) 0%,var(--brown) 100%);
+  color:#fff;
+  padding:48px 0;
+  position:relative;
+  overflow:hidden;
+}
+.local-band::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:radial-gradient(rgba(255,255,255,.16) 1px, transparent 1px);
+  background-size:30px 30px;
+  opacity:.5;
+}
+.local-inner{
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:28px;
+  flex-wrap:wrap;
+}
+.local-text{display:flex;align-items:center;gap:18px;}
+.local-ico{
+  width:62px;height:62px;
+  flex-shrink:0;
+  display:grid;place-items:center;
+  border-radius:20px;
+  font-size:1.7rem;
+  background:rgba(255,255,255,.14);
+  border:1px solid rgba(255,255,255,.22);
+}
+.local-text h3{font-size:1.25rem;margin-bottom:4px;}
+.local-text p{font-size:.9rem;opacity:.85;}
+
+/* ============================================================
+   ABOUT
+   ============================================================ */
+.about-inner{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:52px;
+  align-items:center;
+}
+.about-img img{
+  width:100%;
+  aspect-ratio:5/4;
+  object-fit:cover;
+  border-radius:28px;
+  box-shadow:var(--shadow-lg);
+  border:6px solid #fff;
+}
+.about-text h2{
+  font-family:'Playfair Display','Noto Sans Devanagari',serif;
+  font-size:clamp(1.6rem,3.2vw,2.2rem);
+  color:var(--choco);
+  margin-bottom:16px;
+  letter-spacing:-.5px;
+}
+html[lang="mr"] .about-text h2{font-family:'Noto Sans Devanagari','Playfair Display',serif;letter-spacing:0;}
+.about-text p{color:var(--muted);margin-bottom:16px;font-size:.95rem;}
+.about-points{display:flex;flex-direction:column;gap:11px;margin-top:22px;}
+.about-points li{display:flex;align-items:center;gap:11px;font-size:.9rem;color:var(--choco-2);font-weight:500;}
+.check{
+  width:24px;height:24px;flex-shrink:0;
+  display:grid;place-items:center;
+  border-radius:50%;
+  background:var(--pink-soft);
+  color:var(--brown);
+  font-size:.72rem;
+  font-weight:700;
+}
+
+/* ============================================================
+   CONTACT
+   ============================================================ */
+.contact{background:linear-gradient(180deg,var(--cream-2),var(--cream));}
+.contact-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:22px;
+  margin-bottom:34px;
+}
+.contact-card{
+  background:#fff;
+  border-radius:var(--radius);
+  padding:28px 24px;
+  border:1px solid var(--line);
+  box-shadow:var(--shadow);
+  text-align:center;
+  transition:transform .3s, box-shadow .3s;
+}
+.contact-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-md);}
+.contact-card .why-ico{margin-bottom:14px;}
+.contact-card h3{font-size:.95rem;color:var(--choco);margin-bottom:6px;}
+.contact-card a,.contact-card p{
+  font-size:.88rem;
+  color:var(--muted);
+  word-break:break-word;
+}
+.contact-card a:hover{color:var(--brown);text-decoration:underline;}
+.contact-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.site-footer{
+  background:var(--choco);
+  color:#fff;
+  padding:56px 0 26px;
+}
+.footer-inner{
+  display:grid;
+  grid-template-columns:1.4fr 1fr 1fr;
+  gap:36px;
+  padding-bottom:32px;
+  border-bottom:1px solid rgba(255,255,255,.14);
+}
+.footer-brand{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
+.footer-brand .brand-logo{
+  background:rgba(255,255,255,.12);
+  border-color:rgba(255,255,255,.2);
+}
+.footer-brand strong{font-size:1.1rem;color:#fff;}
+.footer-brand small{font-size:.7rem;color:rgba(255,255,255,.55);letter-spacing:.5px;text-transform:uppercase;}
+.footer-tag{
+  font-size:.86rem;
+  color:var(--gold-soft);
+  font-weight:500;
+  margin-bottom:6px;
+}
+.footer-tag-mr{
+  font-size:.86rem;
+  color:rgba(255,255,255,.6);
+  margin-bottom:16px;
+}
+.footer-col h4{
+  font-size:.82rem;
+  letter-spacing:1.4px;
+  text-transform:uppercase;
+  color:var(--gold-soft);
+  margin-bottom:16px;
+}
+html[lang="mr"] .footer-col h4{letter-spacing:.4px;text-transform:none;font-size:.92rem;}
+.footer-col ul{display:flex;flex-direction:column;gap:10px;}
+.footer-col a,.footer-col li{
+  font-size:.87rem;
+  color:rgba(255,255,255,.72);
+  transition:color .2s;
+}
+.footer-col a:hover{color:#fff;}
+.footer-bottom{
+  padding-top:22px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  align-items:center;
+  justify-content:space-between;
+  font-size:.79rem;
+  color:rgba(255,255,255,.5);
+}
+
+/* ============================================================
+   CART DRAWER
+   ============================================================ */
+.overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(59,35,20,.45);
+  backdrop-filter:blur(3px);
+  opacity:0;
+  visibility:hidden;
+  transition:opacity .3s, visibility .3s;
+  z-index:150;
+}
+.overlay.open{opacity:1;visibility:visible;}
+
+.cart-drawer{
+  position:fixed;
+  top:0;right:0;
+  height:100dvh;
+  width:min(450px,100%);
+  background:var(--cream);
+  z-index:200;
+  display:flex;
+  flex-direction:column;
+  transform:translateX(102%);
+  transition:transform .38s cubic-bezier(.4,0,.2,1);
+  box-shadow:-18px 0 60px rgba(59,35,20,.25);
+}
+.cart-drawer.open{transform:translateX(0);}
+
+.cart-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:18px 20px;
+  background:#fff;
+  border-bottom:1px solid var(--line);
+  flex-shrink:0;
+}
+.cart-head h3{font-size:1.05rem;color:var(--choco);display:flex;align-items:center;gap:9px;}
+.cart-head .count-pill{
+  font-size:.72rem;
+  font-weight:700;
+  padding:3px 10px;
+  border-radius:100px;
+  background:var(--pink-soft);
+  color:var(--brown);
+}
+.icon-btn{
+  width:36px;height:36px;
+  display:grid;place-items:center;
+  border-radius:50%;
+  background:var(--cream-2);
+  color:var(--choco);
+  font-size:1rem;
+  transition:background .2s, transform .2s;
+}
+.icon-btn:hover{background:var(--pink-soft);transform:rotate(90deg);}
+
+.cart-body{
+  flex:1;
+  overflow-y:auto;
+  padding:18px 20px 24px;
+  -webkit-overflow-scrolling:touch;
+}
+
+.cart-empty{
+  text-align:center;
+  padding:52px 16px;
+  color:var(--muted);
+}
+.cart-empty .emoji{font-size:3rem;margin-bottom:12px;opacity:.7;}
+.cart-empty h4{color:var(--choco);font-size:1rem;margin-bottom:6px;}
+.cart-empty p{font-size:.85rem;}
+
+.cart-item{
+  display:flex;
+  gap:13px;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:var(--radius-sm);
+  padding:12px;
+  margin-bottom:12px;
+  animation:slideIn .3s ease;
+}
+@keyframes slideIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
+.cart-item img{
+  width:70px;height:70px;
+  border-radius:12px;
+  object-fit:cover;
+  flex-shrink:0;
+}
+.cart-item-info{flex:1;min-width:0;display:flex;flex-direction:column;}
+.cart-item-info h4{
+  font-size:.88rem;
+  color:var(--choco);
+  margin-bottom:2px;
+  line-height:1.35;
+}
+.cart-item-meta{
+  font-size:.76rem;
+  color:var(--muted);
+  margin-bottom:8px;
+}
+.cart-item-meta .w{
+  display:inline-block;
+  padding:1px 8px;
+  border-radius:100px;
+  background:var(--cream-2);
+  font-weight:600;
+  color:var(--brown);
+}
+.cart-item-foot{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+  margin-top:auto;
+}
+.qty{
+  display:flex;
+  align-items:center;
+  gap:2px;
+  background:var(--cream-2);
+  border-radius:100px;
+  padding:2px;
+}
+.qty button{
+  width:26px;height:26px;
+  display:grid;place-items:center;
+  border-radius:50%;
+  font-size:.95rem;
+  font-weight:700;
+  color:var(--choco);
+  transition:background .2s;
+  line-height:1;
+}
+.qty button:hover{background:#fff;}
+.qty span{min-width:24px;text-align:center;font-size:.85rem;font-weight:700;}
+.cart-item-price{font-size:.92rem;font-weight:700;color:var(--choco);white-space:nowrap;}
+.remove-btn{
+  font-size:.72rem;
+  color:#C0554F;
+  font-weight:600;
+  padding:2px 0;
+  opacity:.75;
+  transition:opacity .2s;
+}
+.remove-btn:hover{opacity:1;text-decoration:underline;}
+
+/* Checkout form */
+.checkout{
+  margin-top:22px;
+  padding-top:22px;
+  border-top:1px dashed var(--line);
+}
+.checkout h4{
+  font-size:.95rem;
+  color:var(--choco);
+  margin-bottom:14px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.field{margin-bottom:13px;}
+.field label{
+  display:block;
+  font-size:.78rem;
+  font-weight:600;
+  color:var(--choco-2);
+  margin-bottom:6px;
+}
+.field input,
+.field textarea{
+  width:100%;
+  padding:12px 15px;
+  border-radius:14px;
+  border:1.5px solid var(--line);
+  background:#fff;
+  font-family:inherit;
+  font-size:.9rem;
+  color:var(--text);
+  transition:border-color .2s, box-shadow .2s;
+}
+.field textarea{resize:vertical;min-height:74px;}
+.field input:focus,
+.field textarea:focus{
+  outline:none;
+  border-color:var(--gold);
+  box-shadow:0 0 0 4px rgba(201,162,39,.14);
+}
+.field input::placeholder,
+.field textarea::placeholder{color:#BCA797;}
+
+.radio-group{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.radio-opt{
+  position:relative;
+  display:flex;
+  align-items:center;
+  gap:9px;
+  padding:12px 14px;
+  border-radius:14px;
+  border:1.5px solid var(--line);
+  background:#fff;
+  cursor:pointer;
+  font-size:.84rem;
+  font-weight:600;
+  color:var(--choco-2);
+  transition:all .2s;
+}
+.radio-opt:hover{border-color:var(--gold-soft);}
+.radio-opt input{
+  position:absolute;
+  opacity:0;
+  pointer-events:none;
+}
+.radio-dot{
+  width:17px;height:17px;
+  border-radius:50%;
+  border:2px solid var(--line);
+  flex-shrink:0;
+  position:relative;
+  transition:border-color .2s;
+}
+.radio-opt input:checked ~ .radio-dot{border-color:var(--gold);}
+.radio-opt input:checked ~ .radio-dot::after{
+  content:"";
+  position:absolute;
+  inset:3px;
+  border-radius:50%;
+  background:var(--gold);
+}
+.radio-opt:has(input:checked){
+  border-color:var(--gold);
+  background:#FFFCF2;
+}
+
+.cart-foot{
+  flex-shrink:0;
+  padding:18px 20px calc(18px + env(safe-area-inset-bottom));
+  background:#fff;
+  border-top:1px solid var(--line);
+  box-shadow:0 -8px 26px rgba(59,35,20,.07);
+}
+.total-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:14px;
+}
+.total-row span{font-size:.88rem;color:var(--muted);font-weight:500;}
+.total-row strong{
+  font-size:1.45rem;
+  color:var(--choco);
+  letter-spacing:-.5px;
+}
+.total-note{
+  font-size:.72rem;
+  color:var(--muted);
+  text-align:center;
+  margin-top:10px;
+}
+
+/* ============================================================
+   FLOATING WHATSAPP
+   ============================================================ */
+.float-wa{
+  position:fixed;
+  right:18px;
+  bottom:18px;
+  z-index:110;
+  width:56px;height:56px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  background:var(--wa);
+  box-shadow:0 10px 28px rgba(37,211,102,.45);
+  transition:transform .25s, box-shadow .25s;
+}
+.float-wa:hover{transform:scale(1.09);box-shadow:0 14px 34px rgba(37,211,102,.55);}
+.float-wa svg{width:29px;height:29px;fill:#fff;}
+
+/* ============================================================
+   TOAST
+   ============================================================ */
+.toast{
+  position:fixed;
+  left:50%;
+  bottom:30px;
+  transform:translate(-50%,140%);
+  background:var(--choco);
+  color:#fff;
+  padding:13px 24px;
+  border-radius:100px;
+  font-size:.86rem;
+  font-weight:500;
+  box-shadow:var(--shadow-lg);
+  z-index:300;
+  transition:transform .4s cubic-bezier(.4,0,.2,1);
+  max-width:90vw;
+  text-align:center;
+}
+.toast.show{transform:translate(-50%,0);}
+.toast.error{background:#C0554F;}
+.toast.success{background:#2E7D5B;}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width:1024px){
+  .hero-inner{gap:36px;}
+  .about-inner{gap:36px;}
+}
+
+@media (max-width:900px){
+  .nav{
+    position:absolute;
+    top:100%;left:0;right:0;
+    flex-direction:column;
+    align-items:stretch;
+    gap:4px;
+    padding:14px 20px 20px;
+    background:var(--cream);
+    border-bottom:1px solid var(--line);
+    box-shadow:var(--shadow-md);
+    display:none;
+  }
+  .nav.open{display:flex;}
+  .nav a{padding:13px 16px;border-radius:14px;font-size:.95rem;}
+  .hamburger{display:grid;}
+
+  .hero{padding:44px 0 60px;}
+  .hero-inner{grid-template-columns:1fr;gap:36px;}
+  .hero-visual{order:-1;max-width:420px;margin-inline:auto;width:100%;}
+  .hero p.lead{margin-inline:auto;}
+  .hero-text{text-align:center;}
+  .hero-cta{justify-content:center;}
+  .hero-trust{justify-content:center;}
+  .hero-badge{margin-inline:auto;}
+
+  .about-inner{grid-template-columns:1fr;}
+  .about-img{order:-1;}
+
+  .footer-inner{grid-template-columns:1fr 1fr;gap:28px;}
+}
+
+@media (max-width:640px){
+  :root{--header-h:64px;}
+  .container{padding-inline:16px;}
+  .section{padding:56px 0;}
+
+  .brand-text small{display:none;}
+  .brand-logo{width:40px;height:40px;font-size:1.2rem;}
+  .brand-text strong{font-size:.92rem;}
+
+  .cart-btn span.label{display:none;}
+  .cart-btn{padding:9px 12px;}
+
+  .lang-switch button{padding:6px 10px;font-size:.74rem;}
+
+  .hero{padding:34px 0 48px;}
+  .hero h1{font-size:1.85rem;}
+  .hero p.lead{font-size:.95rem;}
+  .hero-cta .btn{width:100%;}
+  .hero-float{left:auto;right:8px;bottom:-14px;padding:11px 14px;}
+  .hero-float .ico{font-size:1.3rem;}
+  .hero-float strong{font-size:.8rem;}
+  .hero-float span{font-size:.68rem;}
+
+  .card{flex:1 1 100%;max-width:100%;}
+
+  .local-inner{flex-direction:column;text-align:center;gap:20px;}
+  .local-text{flex-direction:column;gap:12px;}
+
+  .footer-inner{grid-template-columns:1fr;gap:26px;}
+  .footer-bottom{justify-content:center;text-align:center;}
+
+  .cart-drawer{width:100%;}
+  .radio-group{grid-template-columns:1fr;}
+
+  .toast{bottom:86px;font-size:.8rem;padding:12px 18px;}
+  .float-wa{width:52px;height:52px;right:14px;bottom:14px;}
+}
+
+@media (max-width:380px){
+  .lang-switch button{padding:5px 8px;font-size:.7rem;}
+  .header-actions{gap:6px;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- ============================================================
+     HEADER
+     ============================================================ -->
+<header class="site-header">
+  <div class="container header-inner">
+
+    <a href="#home" class="brand">
+      <span class="brand-logo">🎂</span>
+      <span class="brand-text">
+        <strong data-en="Cake House" data-mr="केक हाऊस">Cake House</strong>
+        <small data-en="Fresh • Homemade" data-mr="ताजे • घरगुती">Fresh • Homemade</small>
+      </span>
+    </a>
+
+    <nav class="nav" id="nav">
+      <a href="#home"    data-en="Home"     data-mr="मुख्यपृष्ठ">Home</a>
+      <a href="#cakes"   data-en="Cakes"    data-mr="केक">Cakes</a>
+      <a href="#about"   data-en="About Us" data-mr="आमच्याबद्दल">About Us</a>
+      <a href="#contact" data-en="Contact"  data-mr="संपर्क">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+
+      <div class="lang-switch" role="group" aria-label="Language">
+        <button type="button" data-lang="en" class="active">English</button>
+        <button type="button" data-lang="mr">मराठी</button>
+      </div>
+
+      <button class="cart-btn" id="openCart" type="button" aria-label="Cart">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+        </svg>
+        <span class="label" data-en="Cart" data-mr="कार्ट">Cart</span>
+        <span class="cart-count" id="cartCount" data-empty="true">0</span>
+      </button>
+
+      <button class="hamburger" id="hamburger" type="button" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero" id="home">
+  <div class="container hero-inner">
+
+    <div class="hero-text">
+      <span class="hero-badge">
+        <span class="dot"></span>
+        <span data-en="Now taking orders in Armori" data-mr="आर्मोरीमध्ये ऑर्डर सुरू आहे">Now taking orders in Armori</span>
+      </span>
+
+      <h1 data-en="Fresh Cakes Made With Love ❤️"
+          data-mr="प्रेमाने बनवलेले ताजे आणि स्वादिष्ट केक ❤️">Fresh Cakes Made With Love ❤️</h1>
+
+      <p class="lead"
+         data-en="Delicious cakes for your special moments."
+         data-mr="तुमच्या खास क्षणांसाठी खास केक.">Delicious cakes for your special moments.</p>
+
+      <div class="hero-cta">
+        <a href="#cakes" class="btn btn-primary"
+           data-en="Order Now" data-mr="ऑर्डर करा">Order Now</a>
+
+        <a href="#" class="btn btn-wa" id="heroWhatsApp">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.79-1.47-1.76-1.64-2.06-.17-.3-.02-.46.13-.6.13-.13.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.6-.92-2.19-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.01-1.04 2.47s1.06 2.86 1.21 3.06c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.23 1.36.19 1.87.12.57-.09 1.75-.72 2-1.41.25-.69.25-1.28.17-1.41-.07-.13-.27-.2-.57-.35z"/><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm0 18.15c-1.53 0-3.03-.41-4.34-1.19l-.31-.18-3.12.82.83-3.04-.2-.32a8.2 8.2 0 0 1-1.26-4.33c0-4.54 3.7-8.23 8.24-8.23 4.54 0 8.23 3.69 8.23 8.23 0 4.54-3.69 8.24-8.23 8.24z"/></svg>
+          <span data-en="WhatsApp" data-mr="WhatsApp">WhatsApp</span>
+        </a>
+      </div>
+
+      <div class="hero-trust">
+        <div>
+          <strong>7+</strong>
+          <span data-en="Cake Varieties" data-mr="केक प्रकार">Cake Varieties</span>
+        </div>
+        <div>
+          <strong>100%</strong>
+          <span data-en="Fresh & Homemade" data-mr="ताजे व घरगुती">Fresh &amp; Homemade</span>
+        </div>
+        <div>
+          <strong>Armori</strong>
+          <span data-en="Home Delivery" data-mr="घरपोच सेवा">Home Delivery</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=900&q=70"
+           alt="Fresh chocolate cake" onerror="imgError(this)">
+      <div class="hero-float">
+        <span class="ico">🚚</span>
+        <span>
+          <strong data-en="Free Delivery" data-mr="मोफत डिलिव्हरी">Free Delivery</strong>
+          <span data-en="In Armori town" data-mr="आर्मोरी शहरात">In Armori town</span>
+        </span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     PRODUCTS
+     ============================================================ -->
+<section class="section" id="cakes">
+  <div class="container">
+
+    <div class="section-head">
+      <span class="eyebrow" data-en="Our Menu" data-mr="आमचा मेनू">Our Menu</span>
+      <h2 data-en="Our Delicious Cakes" data-mr="आमचे स्वादिष्ट केक">Our Delicious Cakes</h2>
+      <p data-en="Choose your cake, pick a weight, and order directly on WhatsApp."
+         data-mr="तुमचा केक निवडा, वजन ठरवा आणि थेट WhatsApp वर ऑर्डर करा.">Choose your cake, pick a weight, and order directly on WhatsApp.</p>
+    </div>
+
+    <div class="products" id="productGrid"></div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     WHY CHOOSE US
+     ============================================================ -->
+<section class="section why" id="why">
+  <div class="container">
+
+    <div class="section-head">
+      <span class="eyebrow" data-en="Why Us" data-mr="आम्हालाच का">Why Us</span>
+      <h2 data-en="Why Choose Us" data-mr="आम्हालाच का निवडावे">Why Choose Us</h2>
+      <p data-en="A small local bakery with big taste and honest service."
+         data-mr="छोटी स्थानिक बेकरी, मोठी चव आणि प्रामाणिक सेवा.">A small local bakery with big taste and honest service.</p>
+    </div>
+
+    <div class="why-grid">
+
+      <div class="why-card">
+        <div class="why-ico">🍰</div>
+        <h3 data-en="Fresh & Quality Cakes" data-mr="ताजे आणि दर्जेदार केक">Fresh &amp; Quality Cakes</h3>
+        <p data-en="Baked fresh on order with premium ingredients."
+           data-mr="ऑर्डरनुसार ताजे बेक केलेले, उत्तम साहित्य वापरून.">Baked fresh on order with premium ingredients.</p>
+      </div>
+
+      <div class="why-card">
+        <div class="why-ico">🎨</div>
+        <h3 data-en="Custom Cake Orders" data-mr="आपल्या आवडीनुसार केक">Custom Cake Orders</h3>
+        <p data-en="Birthday, anniversary & photo cakes made your way."
+           data-mr="वाढदिवस, लग्नवाढदिवस आणि फोटो केक तुमच्या आवडीनुसार.">Birthday, anniversary &amp; photo cakes made your way.</p>
+      </div>
+
+      <div class="why-card">
+        <div class="why-ico">🛵</div>
+        <h3 data-en="Home Delivery" data-mr="घरपोच सेवा">Home Delivery</h3>
+        <p data-en="Safe and on-time delivery in Armori & nearby."
+           data-mr="आर्मोरी आणि परिसरात सुरक्षित व वेळेवर डिलिव्हरी.">Safe and on-time delivery in Armori &amp; nearby.</p>
+      </div>
+
+      <div class="why-card">
+        <div class="why-ico">💬</div>
+        <h3 data-en="Easy WhatsApp Ordering" data-mr="सोपी WhatsApp ऑर्डर">Easy WhatsApp Ordering</h3>
+        <p data-en="Just tap and send your order on WhatsApp."
+           data-mr="फक्त टॅप करा आणि WhatsApp वर ऑर्डर पाठवा.">Just tap and send your order on WhatsApp.</p>
+      </div>
+
+      <div class="why-card">
+        <div class="why-ico">📍</div>
+        <h3 data-en="Local Service" data-mr="स्थानिक सेवा">Local Service</h3>
+        <p data-en="A proud local home bakery from Armori, Gadchiroli."
+           data-mr="आर्मोरी, गडचिरोली येथील अभिमानी स्थानिक होम बेकरी.">A proud local home bakery from Armori, Gadchiroli.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     LOCAL AREA BAND
+     ============================================================ -->
+<section class="local-band">
+  <div class="container local-inner">
+    <div class="local-text">
+      <div class="local-ico">🛵</div>
+      <div>
+        <h3 data-en="Home Delivery Available in Armori & Nearby Areas"
+            data-mr="आर्मोरी आणि आसपासच्या परिसरात घरपोच सेवा उपलब्ध">Home Delivery Available in Armori &amp; Nearby Areas</h3>
+        <p data-en="Armori • Gadchiroli Road • Nearby Villages"
+           data-mr="आर्मोरी • गडचिरोली रोड • जवळपासची गावे">Armori • Gadchiroli Road • Nearby Villages</p>
+      </div>
+    </div>
+
+    <a href="#" class="btn btn-gold" id="bandOrder"
+       data-en="Order on WhatsApp" data-mr="WhatsApp वर ऑर्डर करा">Order on WhatsApp</a>
+  </div>
+</section>
+
+<!-- ============================================================
+     ABOUT
+     ============================================================ -->
+<section class="section" id="about">
+  <div class="container about-inner">
+
+    <div class="about-img">
+      <img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&w=900&q=70"
+           alt="Homemade cake baking" onerror="imgError(this)">
+    </div>
+
+    <div class="about-text">
+      <span class="eyebrow" data-en="About Us" data-mr="आमच्याबद्दल">About Us</span>
+      <h2 data-en="A Small Home Bakery From Armori" data-mr="आर्मोरीतील छोटी घरगुती बेकरी">A Small Home Bakery From Armori</h2>
+
+      <p data-en="We are a small home bakery in Armori, making fresh cakes for birthdays, anniversaries and every happy moment. Every cake is baked on order with love and the best ingredients."
+         data-mr="आम्ही आर्मोरी येथील एक छोटी घरगुती बेकरी आहोत. वाढदिवस, लग्नवाढदिवस आणि प्रत्येक आनंदाच्या क्षणासाठी आम्ही ताजे केक बनवतो. प्रत्येक केक ऑर्डरनुसार प्रेमाने आणि उत्तम साहित्याने बेक केला जातो.">We are a small home bakery in Armori, making fresh cakes for birthdays, anniversaries and every happy moment. Every cake is baked on order with love and the best ingredients.</p>
+
+      <p data-en="No preservatives. No factory cakes. Just fresh, soft and delicious cakes made right here in your town."
+         data-mr="कोणतेही प्रिझर्व्हेटिव्ह नाही. फॅक्टरी केक नाही. फक्त ताजे, मऊ आणि स्वादिष्ट केक — तुमच्याच शहरात बनवलेले.">No preservatives. No factory cakes. Just fresh, soft and delicious cakes made right here in your town.</p>
+
+      <ul class="about-points">
+        <li><span class="check">✓</span><span data-en="Baked fresh after you order" data-mr="ऑर्डर दिल्यानंतर ताजे बेक केले जाते">Baked fresh after you order</span></li>
+        <li><span class="check">✓</span><span data-en="Best quality cream & chocolate" data-mr="उत्तम दर्जाची क्रीम व चॉकलेट">Best quality cream &amp; chocolate</span></li>
+        <li><span class="check">✓</span><span data-en="Custom message on cake" data-mr="केकवर तुमचा संदेश">Custom message on cake</span></li>
+        <li><span class="check">✓</span><span data-en="Friendly local pricing" data-mr="स्थानिक व परवडणारे दर">Friendly local pricing</span></li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     CONTACT
+     ============================================================ -->
+<section class="section contact" id="contact">
+  <div class="container">
+
+    <div class="section-head">
+      <span class="eyebrow" data-en="Get In Touch" data-mr="संपर्क करा">Get In Touch</span>
+      <h2 data-en="Contact Us" data-mr="आमच्याशी संपर्क साधा">Contact Us</h2>
+      <p data-en="Call, message or visit us — we are happy to help!"
+         data-mr="कॉल करा, मेसेज करा किंवा भेट द्या — आम्हाला मदत करायला आनंद होईल!">Call, message or visit us — we are happy to help!</p>
+    </div>
+
+    <div class="contact-grid">
+
+      <div class="contact-card">
+        <div class="why-ico">📞</div>
+        <h3 data-en="Phone" data-mr="फोन">Phone</h3>
+        <a href="tel:+919834377731" data-config="phone">+91 98343 77731</a>
+      </div>
+
+      <div class="contact-card">
+        <div class="why-ico">💬</div>
+        <h3 data-en="WhatsApp" data-mr="WhatsApp">WhatsApp</h3>
+        <a href="https://wa.me/919834377731" id="contactWhatsApp" target="_blank" rel="noopener">+91 98343 77731</a>
+      </div>
+
+      <div class="contact-card">
+        <div class="why-ico">📍</div>
+        <h3 data-en="Shop Location" data-mr="दुकानाचा पत्ता">Shop Location</h3>
+        <p data-config="address" data-en="Main Road, Armori, Dist. Gadchiroli, Maharashtra 441208"
+           data-mr="मुख्य रस्ता, आर्मोरी, जि. गडचिरोली, महाराष्ट्र ४४१२०८">Main Road, Armori, Dist. Gadchiroli, Maharashtra 441208</p>
+      </div>
+
+      <div class="contact-card">
+        <div class="why-ico">📸</div>
+        <h3 data-en="Instagram" data-mr="इंस्टाग्राम">Instagram</h3>
+        <a href="#" id="contactInsta" target="_blank" rel="noopener">@armoricakehouse</a>
+      </div>
+
+    </div>
+
+    <div class="contact-actions">
+      <a href="#" class="btn btn-gold" id="mapBtn" target="_blank" rel="noopener"
+         data-en="Open in Google Maps" data-mr="Google Maps मध्ये उघडा">Open in Google Maps</a>
+      <a href="#" class="btn btn-wa" id="contactWaBtn" target="_blank" rel="noopener"
+         data-en="Chat on WhatsApp" data-mr="WhatsApp वर चॅट करा">Chat on WhatsApp</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="site-footer">
+  <div class="container">
+
+    <div class="footer-inner">
+
+      <div>
+        <div class="footer-brand">
+          <span class="brand-logo">🎂</span>
+          <span>
+            <strong data-en="Cake House" data-mr="केक हाऊस">Cake House</strong><br>
+            <small data-en="Fresh • Homemade" data-mr="ताजे • घरगुती">Fresh • Homemade</small>
+          </span>
+        </div>
+        <p class="footer-tag" data-en="Fresh Cakes • Local Delivery • Made With Love"
+           data-mr="ताजे केक • स्थानिक डिलिव्हरी • प्रेमाने बनवलेले">Fresh Cakes • Local Delivery • Made With Love</p>
+        <p class="footer-tag-mr" data-en="ताजे केक • स्थानिक डिलिव्हरी • प्रेमाने बनवलेले"
+           data-mr="Fresh Cakes • Local Delivery • Made With Love">ताजे केक • स्थानिक डिलिव्हरी • प्रेमाने बनवलेले</p>
+      </div>
+
+      <div class="footer-col">
+        <h4 data-en="Quick Links" data-mr="दुवे">Quick Links</h4>
+        <ul>
+          <li><a href="#home" data-en="Home" data-mr="मुख्यपृष्ठ">Home</a></li>
+          <li><a href="#cakes" data-en="Cakes" data-mr="केक">Cakes</a></li>
+          <li><a href="#about" data-en="About Us" data-mr="आमच्याबद्दल">About Us</a></li>
+          <li><a href="#contact" data-en="Contact" data-mr="संपर्क">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 data-en="Contact" data-mr="संपर्क">Contact</h4>
+        <ul>
+          <li><a href="tel:+919834377731">+91 98343 77731</a></li>
+          <li><a href="https://wa.me/919834377731" id="footerWhatsApp" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li data-en="Armori, Gadchiroli, Maharashtra" data-mr="आर्मोरी, गडचिरोली, महाराष्ट्र">Armori, Gadchiroli, Maharashtra</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> <span data-en="Armori Cake House. All rights reserved." data-mr="आर्मोरी केक हाऊस. सर्व हक्क राखीव.">Armori Cake House. All rights reserved.</span></span>
+      <span data-en="Made with ❤️ in Armori, Maharashtra" data-mr="आर्मोरी, महाराष्ट्र येथे ❤️ ने बनवले">Made with ❤️ in Armori, Maharashtra</span>
+    </div>
+
+  </div>
+</footer>
+
+<!-- ============================================================
+     FLOATING WHATSAPP
+     ============================================================ -->
+<a href="#" class="float-wa" id="floatWhatsApp" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.79-1.47-1.76-1.64-2.06-.17-.3-.02-.46.13-.6.13-.13.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.6-.92-2.19-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.01-1.04 2.47s1.06 2.86 1.21 3.06c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.23 1.36.19 1.87.12.57-.09 1.75-.72 2-1.41.25-.69.25-1.28.17-1.41-.07-.13-.27-.2-.57-.35z"/><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm0 18.15c-1.53 0-3.03-.41-4.34-1.19l-.31-.18-3.12.82.83-3.04-.2-.32a8.2 8.2 0 0 1-1.26-4.33c0-4.54 3.7-8.23 8.24-8.23 4.54 0 8.23 3.69 8.23 8.23 0 4.54-3.69 8.24-8.23 8.24z"/></svg>
+</a>
+
+<!-- ============================================================
+     CART DRAWER
+     ============================================================ -->
+<div class="overlay" id="overlay"></div>
+
+<aside class="cart-drawer" id="cartDrawer" aria-hidden="true">
+
+  <div class="cart-head">
+    <h3>
+      <span data-en="Your Cart" data-mr="तुमचे कार्ट">Your Cart</span>
+      <span class="count-pill" id="drawerCount">0</span>
+    </h3>
+    <button class="icon-btn" id="closeCart" type="button" aria-label="Close">✕</button>
+  </div>
+
+  <div class="cart-body" id="cartBody">
+
+    <div id="cartItemsWrap"></div>
+
+    <!-- Checkout form -->
+    <div class="checkout" id="checkoutForm" style="display:none;">
+      <h4>
+        <span>📝</span>
+        <span data-en="Your Details" data-mr="तुमची माहिती">Your Details</span>
+      </h4>
+
+      <div class="field">
+        <label for="custName" data-en="Full Name" data-mr="पूर्ण नाव">Full Name</label>
+        <input type="text" id="custName" autocomplete="name"
+               data-en-ph="Enter your name" data-mr-ph="तुमचे नाव लिहा">
+      </div>
+
+      <div class="field">
+        <label for="custMobile" data-en="Mobile Number" data-mr="मोबाईल नंबर">Mobile Number</label>
+        <input type="tel" id="custMobile" inputmode="numeric" maxlength="10" autocomplete="tel"
+               data-en-ph="10 digit mobile number" data-mr-ph="१० अंकी मोबाईल नंबर">
+      </div>
+
+      <div class="field">
+        <label data-en="Order Type" data-mr="ऑर्डरचा प्रकार">Order Type</label>
+        <div class="radio-group">
+          <label class="radio-opt">
+            <input type="radio" name="orderType" value="delivery" checked>
+            <span class="radio-dot"></span>
+            <span data-en="Home Delivery" data-mr="घरपोच सेवा">Home Delivery</span>
+          </label>
+          <label class="radio-opt">
+            <input type="radio" name="orderType" value="pickup">
+            <span class="radio-dot"></span>
+            <span data-en="Store Pickup" data-mr="दुकानातून घ्या">Store Pickup</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="field" id="addressField">
+        <label for="custAddress" data-en="Delivery Address" data-mr="डिलिव्हरीचा पत्ता">Delivery Address</label>
+        <textarea id="custAddress"
+                  data-en-ph="House / Area / Landmark, Armori"
+                  data-mr-ph="घर / परिसर / लँडमार्क, आर्मोरी"></textarea>
+      </div>
+
+      <div class="field" style="margin-bottom:0;">
+        <label for="custNote" data-en="Message on Cake (optional)" data-mr="केकवरचा संदेश (ऐच्छिक)">Message on Cake (optional)</label>
+        <input type="text" id="custNote"
+               data-en-ph="e.g. Happy Birthday Riya" data-mr-ph="उदा. वाढदिवसाच्या शुभेच्छा रिया">
+      </div>
+    </div>
+
+  </div>
+
+  <div class="cart-foot">
+    <div class="total-row">
+      <span data-en="Total Amount" data-mr="एकूण रक्कम">Total Amount</span>
+      <strong id="cartTotal">₹0</strong>
+    </div>
+    <button class="btn btn-wa btn-block" id="placeOrder" type="button" style="font-size:1rem;padding:15px;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.79-1.47-1.76-1.64-2.06-.17-.3-.02-.46.13-.6.13-.13.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.6-.92-2.19-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.01-1.04 2.47s1.06 2.86 1.21 3.06c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.23 1.36.19 1.87.12.57-.09 1.75-.72 2-1.41.25-.69.25-1.28.17-1.41-.07-.13-.27-.2-.57-.35z"/><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm0 18.15c-1.53 0-3.03-.41-4.34-1.19l-.31-.18-3.12.82.83-3.04-.2-.32a8.2 8.2 0 0 1-1.26-4.33c0-4.54 3.7-8.23 8.24-8.23 4.54 0 8.23 3.69 8.23 8.23 0 4.54-3.69 8.24-8.23 8.24z"/></svg>
+      <span data-en="Order on WhatsApp" data-mr="WhatsApp वर ऑर्डर करा">Order on WhatsApp</span>
+    </button>
+    <p class="total-note" data-en="Your order will open in WhatsApp — just press send."
+       data-mr="तुमची ऑर्डर WhatsApp मध्ये उघडेल — फक्त send दाबा.">Your order will open in WhatsApp — just press send.</p>
+  </div>
+
+</aside>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<script>
+/* ================================================================
+   ⚙️  CONFIGURATION — EDIT EVERYTHING HERE
+   ================================================================ */
+const CONFIG = {
+  shopName : { en: "Cake House", mr: "केक हाऊस" },
+
+  // Phone shown on the site
+  phone      : "+91 9834377731",
+  phoneLink  : "+919834377731",
+
+  // ⬇️ CHANGE THIS to your real WhatsApp number (country code + number, NO + or spaces)
+  whatsapp   : "919834377731",
+
+  address : {
+    en: "Main Road, Armori, Dist. Gadchiroli, Maharashtra 441208",
+    mr: "मुख्य रस्ता, आर्मोरी, जि. गडचिरोली, महाराष्ट्र ४४१२०८"
+  },
+
+  mapUrl    : "https://www.google.com/maps/search/?api=1&query=Armori,Gadchiroli,Maharashtra",
+  instagram : "https://instagram.com/",          // ← your Instagram link
+  instaName : "@armoricakehouse",
+
+  currency  : "₹"
+};
+
+/* ================================================================
+   🍰  PRODUCTS — EDIT NAMES / PRICES / IMAGES HERE
+   p05 = price for 0.5 KG   |   p1 = price for 1 KG
+   ================================================================ */
+const PRODUCTS = [
+  {
+    id: 1,
+    en: "Chocolate Truffle Cake", mr: "चॉकलेट ट्रफल केक",
+    descEn: "Rich dark chocolate sponge with silky truffle ganache.",
+    descMr: "समृद्ध डार्क चॉकलेट स्पंज आणि मऊ ट्रफल गणाचे.",
+    img: "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=700&q=70",
+    p05: 450, p1: 850, tagEn: "Bestseller", tagMr: "लोकप्रिय"
+  },
+  {
+    id: 2,
+    en: "Black Forest Cake", mr: "ब्लॅक फॉरेस्ट केक",
+    descEn: "Classic chocolate sponge, cherries and fresh whipped cream.",
+    descMr: "क्लासिक चॉकलेट स्पंज, चेरी आणि ताजी व्हिप्ड क्रीम.",
+    img: "H.image/image1.png",
+    p05: 400, p1: 750, tagEn: "", tagMr: ""
+  },
+  {
+    id: 3,
+    en: "Red Velvet Cake", mr: "रेड वेलवेट केक",
+    descEn: "Soft red velvet layers with creamy cheese frosting.",
+    descMr: "मऊ रेड वेलवेट लेअर्स आणि क्रीमी चीज फ्रॉस्टिंग.",
+    img: "H.image/image3.png",
+    p05: 500, p1: 950, tagEn: "Premium", tagMr: "प्रीमियम"
+  },
+  {
+    id: 4,
+    en: "Butterscotch Cake", mr: "बटरस्कॉच केक",
+    descEn: "Caramel butterscotch crunch with smooth cream.",
+    descMr: "कॅरेमल बटरस्कॉच क्रंच आणि मऊ क्रीम.",
+    img: "https://images.unsplash.com/photo-1621303837174-89787a7d4729?auto=format&fit=crop&w=700&q=70",
+    p05: 400, p1: 750, tagEn: "", tagMr: ""
+  },
+  {
+    id: 5,
+    en: "Pineapple Cake", mr: "पाइनॅपल केक",
+    descEn: "Fresh pineapple chunks with light whipped cream.",
+    descMr: "ताजे पाइनॅपल तुकडे आणि हलकी व्हिप्ड क्रीम.",
+    img: "https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=700&q=70",
+    p05: 350, p1: 650, tagEn: "", tagMr: ""
+  },
+  {
+    id: 6,
+    en: "Vanilla Cream Cake", mr: "व्हॅनिला क्रीम केक",
+    descEn: "Soft vanilla sponge with rich vanilla cream.",
+    descMr: "मऊ व्हॅनिला स्पंज आणि समृद्ध व्हॅनिला क्रीम.",
+    img: "https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&w=700&q=70",
+    p05: 350, p1: 650, tagEn: "", tagMr: ""
+  },
+  {
+    id: 7,
+    en: "Strawberry Cake", mr: "स्ट्रॉबेरी केक",
+    descEn: "Fresh strawberry cream with juicy berries.",
+    descMr: "ताजी स्ट्रॉबेरी क्रीम आणि रसाळ बेरी.",
+    img: "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&w=700&q=70",
+    p05: 450, p1: 850, tagEn: "", tagMr: ""
+  }
+];
+
+/* ================================================================
+   🌐  LANGUAGE SYSTEM
+   ================================================================ */
+let LANG = localStorage.getItem("ach_lang") || "en";
+const t = (en, mr) => (LANG === "mr" ? mr : en);
+
+function applyLanguage(){
+  document.documentElement.lang = LANG;
+  document.title = LANG === "mr"
+    ? "केक हाऊस — प्रेमाने बनवलेले ताजे केक"
+    : "Cake House — Fresh Cakes Made With Love";
+
+  // Text content
+  document.querySelectorAll("[data-en]").forEach(el => {
+    const val = LANG === "mr" ? el.dataset.mr : el.dataset.en;
+    if (val !== undefined) el.textContent = val;
+  });
+
+  // Placeholders
+  document.querySelectorAll("[data-en-ph]").forEach(el => {
+    const val = LANG === "mr" ? el.dataset.mrPh : el.dataset.enPh;
+    if (val !== undefined) el.placeholder = val;
+  });
+
+  // Toggle buttons
+  document.querySelectorAll(".lang-switch button").forEach(b => {
+    b.classList.toggle("active", b.dataset.lang === LANG);
+  });
+
+  renderProducts();
+  renderCart();
+}
+
+document.querySelectorAll(".lang-switch button").forEach(btn => {
+  btn.addEventListener("click", () => {
+    LANG = btn.dataset.lang;
+    localStorage.setItem("ach_lang", LANG);
+    applyLanguage();
+  });
+});
+
+/* ================================================================
+   🖼  IMAGE FALLBACK
+   ================================================================ */
+function imgError(img){
+  img.onerror = null;
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="700" height="525">
+    <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FBE3D6"/><stop offset="1" stop-color="#F4C7CE"/>
+    </linearGradient></defs>
+    <rect width="700" height="525" fill="url(#g)"/>
+    <text x="350" y="300" font-size="130" text-anchor="middle">🎂</text>
+  </svg>`;
+  img.src = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
+}
+
+/* ================================================================
+   🛒  CART STATE
+   ================================================================ */
+let cart = [];
+try {
+  cart = JSON.parse(localStorage.getItem("ach_cart") || "[]");
+  if (!Array.isArray(cart)) cart = [];
+} catch(e){ cart = []; }
+
+function saveCart(){
+  try { localStorage.setItem("ach_cart", JSON.stringify(cart)); } catch(e){}
+}
+
+const money = n => CONFIG.currency + Number(n).toLocaleString("en-IN");
+
+/* ================================================================
+   🍰  RENDER PRODUCTS
+   ================================================================ */
+function renderProducts(){
+  const grid = document.getElementById("productGrid");
+  if (!grid) return;
+
+  grid.innerHTML = PRODUCTS.map(p => {
+    const name    = LANG === "mr" ? p.mr : p.en;
+    const altName = LANG === "mr" ? p.en : p.mr;
+    const desc    = LANG === "mr" ? p.descMr : p.descEn;
+    const tag     = LANG === "mr" ? p.tagMr : p.tagEn;
+
+    return `
+      <article class="card" data-id="${p.id}">
+        <div class="card-img">
+          <img src="${p.img}" alt="${name}" loading="lazy" decoding="async" onerror="imgError(this)">
+          ${tag ? `<span class="card-tag">${tag}</span>` : ""}
+          <span class="price-tag" data-price>${money(p.p05)}</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">${name}</h3>
+          <p class="card-sub">${altName}</p>
+          <p class="card-desc">${desc}</p>
+
+          <div class="weights" data-weight="0.5">
+            <button type="button" class="w-btn active" data-w="0.5">0.5 ${t("KG","किलो")}</button>
+            <button type="button" class="w-btn" data-w="1">1 ${t("KG","किलो")}</button>
+          </div>
+
+          <div class="card-actions">
+            <button type="button" class="btn btn-outline add-btn">
+              🛒 <span>${t("Add to Cart","कार्टमध्ये टाका")}</span>
+            </button>
+            <button type="button" class="btn btn-wa wa-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.79-1.47-1.76-1.64-2.06-.17-.3-.02-.46.13-.6.13-.13.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.6-.92-2.19-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.01-1.04 2.47s1.06 2.86 1.21 3.06c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.23 1.36.19 1.87.12.57-.09 1.75-.72 2-1.41.25-.69.25-1.28.17-1.41-.07-.13-.27-.2-.57-.35z"/><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm0 18.15c-1.53 0-3.03-.41-4.34-1.19l-.31-.18-3.12.82.83-3.04-.2-.32a8.2 8.2 0 0 1-1.26-4.33c0-4.54 3.7-8.23 8.24-8.23 4.54 0 8.23 3.69 8.23 8.23 0 4.54-3.69 8.24-8.23 8.24z"/></svg>
+              <span>${t("Order on WhatsApp","WhatsApp वर ऑर्डर")}</span>
+            </button>
+          </div>
+        </div>
+      </article>
+    `;
+  }).join("");
+}
+
+/* ================================================================
+   🖱  PRODUCT GRID EVENTS (delegation)
+   ================================================================ */
+document.getElementById("productGrid").addEventListener("click", e => {
+
+  const card = e.target.closest(".card");
+  if (!card) return;
+  const id = Number(card.dataset.id);
+
+  // Weight toggle
+  const wBtn = e.target.closest(".w-btn");
+  if (wBtn){
+    const w = wBtn.dataset.w;
+    card.querySelectorAll(".w-btn").forEach(b => b.classList.toggle("active", b === wBtn));
+    card.querySelector(".weights").dataset.weight = w;
+    const p = PRODUCTS.find(x => x.id === id);
+    card.querySelector("[data-price]").textContent = money(w === "1" ? p.p1 : p.p05);
+    return;
+  }
+
+  // Add to cart
+  if (e.target.closest(".add-btn")){
+    const w = card.querySelector(".weights").dataset.weight;
+    addToCart(id, w);
+    showToast(t("Added to cart ✓", "कार्टमध्ये जोडले ✓"), "success");
+    return;
+  }
+
+  // Direct WhatsApp order
+  if (e.target.closest(".wa-btn")){
+    const w = card.querySelector(".weights").dataset.weight;
+    directOrder(id, w);
+  }
+});
+
+/* ================================================================
+   🛒  CART LOGIC
+   ================================================================ */
+function addToCart(id, weight){
+  const key = id + "_" + weight;
+  const existing = cart.find(i => i.key === key);
+  if (existing){
+    existing.qty += 1;
+  } else {
+    cart.push({ key, id, weight, qty: 1 });
+  }
+  saveCart();
+  renderCart();
+}
+
+function changeQty(key, delta){
+  const item = cart.find(i => i.key === key);
+  if (!item) return;
+  item.qty += delta;
+  if (item.qty <= 0) cart = cart.filter(i => i.key !== key);
+  saveCart();
+  renderCart();
+}
+
+function removeItem(key){
+  cart = cart.filter(i => i.key !== key);
+  saveCart();
+  renderCart();
+}
+
+function cartCount(){
+  return cart.reduce((s, i) => s + i.qty, 0);
+}
+
+function cartTotal(){
+  return cart.reduce((sum, item) => {
+    const p = PRODUCTS.find(x => x.id === item.id);
+    if (!p) return sum;
+    const unit = item.weight === "1" ? p.p1 : p.p05;
+    return sum + unit * item.qty;
+  }, 0);
+}
+
+/* ================================================================
+   🎨  RENDER CART
+   ================================================================ */
+function renderCart(){
+  const wrap     = document.getElementById("cartItemsWrap");
+  const countEl  = document.getElementById("cartCount");
+  const drawerCt = document.getElementById("drawerCount");
+  const totalEl  = document.getElementById("cartTotal");
+  const form     = document.getElementById("checkoutForm");
+  const count    = cartCount();
+
+  // Badges
+  countEl.textContent = count;
+  countEl.dataset.empty = count === 0 ? "true" : "false";
+  drawerCt.textContent = count;
+
+  // Total
+  totalEl.textContent = money(cartTotal());
+
+  // Empty state
+  if (!cart.length){
+    wrap.innerHTML = `
+      <div class="cart-empty">
+        <div class="emoji">🎂</div>
+        <h4>${t("Your cart is empty","तुमचे कार्ट रिकामे आहे")}</h4>
+        <p>${t("Add a cake to get started.","सुरू करण्यासाठी केक जोडा.")}</p>
+      </div>`;
+    form.style.display = "none";
+    return;
+  }
+
+  form.style.display = "block";
+
+  wrap.innerHTML = cart.map(item => {
+    const p = PRODUCTS.find(x => x.id === item.id);
+    if (!p) return "";
+    const unit  = item.weight === "1" ? p.p1 : p.p05;
+    const name  = LANG === "mr" ? p.mr : p.en;
+    const wText = item.weight === "1" ? t("1 KG","1 किलो") : t("0.5 KG","0.5 किलो");
+
+    return `
+      <div class="cart-item">
+        <img src="${p.img}" alt="${name}" onerror="imgError(this)">
+        <div class="cart-item-info">
+          <h4>${name}</h4>
+          <div class="cart-item-meta">
+            <span class="w">${wText}</span> · ${money(unit)}
+          </div>
+          <div class="cart-item-foot">
+            <div class="qty">
+              <button type="button" data-act="minus" data-key="${item.key}">−</button>
+              <span>${item.qty}</span>
+              <button type="button" data-act="plus" data-key="${item.key}">+</button>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:2px;">
+              <span class="cart-item-price">${money(unit * item.qty)}</span>
+              <button type="button" class="remove-btn" data-act="remove" data-key="${item.key}">${t("Remove","काढा")}</button>
+            </div>
+          </div>
+        </div>
+      </div>`;
+  }).join("");
+}
+
+/* Cart events */
+document.getElementById("cartItemsWrap").addEventListener("click", e => {
+  const btn = e.target.closest("[data-act]");
+  if (!btn) return;
+  const { act, key } = btn.dataset;
+  if (act === "plus")   changeQty(key, 1);
+  if (act === "minus")  changeQty(key, -1);
+  if (act === "remove") removeItem(key);
+});
+
+/* ================================================================
+   🚚  DELIVERY / PICKUP TOGGLE
+   ================================================================ */
+document.querySelectorAll('input[name="orderType"]').forEach(radio => {
+  radio.addEventListener("change", () => {
+    const isDelivery = document.querySelector('input[name="orderType"]:checked').value === "delivery";
+    document.getElementById("addressField").style.display = isDelivery ? "block" : "none";
+  });
+});
+
+/* ================================================================
+   📱  DRAWER OPEN / CLOSE
+   ================================================================ */
+const drawer  = document.getElementById("cartDrawer");
+const overlay = document.getElementById("overlay");
+
+function openCart(){
+  drawer.classList.add("open");
+  overlay.classList.add("open");
+  drawer.setAttribute("aria-hidden","false");
+  document.body.style.overflow = "hidden";
+}
+function closeCart(){
+  drawer.classList.remove("open");
+  overlay.classList.remove("open");
+  drawer.setAttribute("aria-hidden","true");
+  document.body.style.overflow = "";
+}
+
+document.getElementById("openCart").addEventListener("click", openCart);
+document.getElementById("closeCart").addEventListener("click", closeCart);
+overlay.addEventListener("click", closeCart);
+document.addEventListener("keydown", e => { if (e.key === "Escape") closeCart(); });
+
+/* ================================================================
+   📲  WHATSAPP ORDER
+   ================================================================ */
+
+
+const GOOGLE_SCRIPT_URL =
+  "PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE";
+
+
+function waLink(message){
+  return "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(message);
+}
+
+function directOrder(id, weight){
+  const p = PRODUCTS.find(x => x.id === id);
+  const unit  = weight === "1" ? p.p1 : p.p05;
+  const wText = weight === "1" ? t("1 KG","1 किलो") : t("0.5 KG","0.5 किलो");
+
+  const msg =
+`*${t("New Cake Order","नवीन केक ऑर्डर")}* 🎂
+${LANG === "mr" ? CONFIG.shopName.mr : CONFIG.shopName.en}
+
+🍰 ${LANG === "mr" ? p.mr : p.en}
+⚖️ ${t("Weight","वजन")}: ${wText}
+🔢 ${t("Quantity","संख्या")}: 1
+💰 ${t("Price","किंमत")}: ${money(unit)}
+
+${t("Please confirm my order. Thank you!","कृपया माझी ऑर्डर कन्फर्म करा. धन्यवाद!")}`;
+
+  window.open(waLink(msg), "_blank");
+}
+
+document.getElementById("placeOrder").addEventListener("click", () => {
+
+  if (!cart.length){
+    showToast(t("Your cart is empty!","तुमचे कार्ट रिकामे आहे!"), "error");
+    return;
+  }
+
+  const name     = document.getElementById("custName").value.trim();
+  const mobile   = document.getElementById("custMobile").value.trim();
+  const type     = document.querySelector('input[name="orderType"]:checked').value;
+  const address  = document.getElementById("custAddress").value.trim();
+  const note     = document.getElementById("custNote").value.trim();
+
+  if (!name){
+    showToast(t("Please enter your name.","कृपया तुमचे नाव लिहा."), "error");
+    document.getElementById("custName").focus();
+    return;
+  }
+  if (!/^[6-9]\d{9}$/.test(mobile)){
+    showToast(t("Please enter a valid 10-digit mobile number.","कृपया वैध १० अंकी मोबाईल नंबर लिहा."), "error");
+    document.getElementById("custMobile").focus();
+    return;
+  }
+  if (type === "delivery" && !address){
+    showToast(t("Please enter your delivery address.","कृपया डिलिव्हरीचा पत्ता लिहा."), "error");
+    document.getElementById("custAddress").focus();
+    return;
+  }
+
+  // Build item lines
+  const lines = cart.map((item, idx) => {
+    const p = PRODUCTS.find(x => x.id === item.id);
+    const unit  = item.weight === "1" ? p.p1 : p.p05;
+    const wText = item.weight === "1" ? t("1 KG","1 किलो") : t("0.5 KG","0.5 किलो");
+    const nm    = LANG === "mr" ? p.mr : p.en;
+    return `${idx + 1}. ${nm}\n   ${t("Weight","वजन")}: ${wText} | ${t("Qty","संख्या")}: ${item.qty} | ${money(unit * item.qty)}`;
+  }).join("\n");
+
+  const orderTypeText = type === "delivery"
+    ? t("Home Delivery","घरपोच सेवा")
+    : t("Store Pickup","दुकानातून घ्या");
+
+  let msg =
+`*${t("NEW ORDER","नवीन ऑर्डर")}* 🎂
+*${LANG === "mr" ? CONFIG.shopName.mr : CONFIG.shopName.en}*
+
+👤 ${t("Name","नाव")}: ${name}
+📱 ${t("Mobile","मोबाईल")}: ${mobile}
+
+🍰 *${t("Order Details","ऑर्डरची माहिती")}*
+${lines}
+
+💰 *${t("Total","एकूण")}: ${money(cartTotal())}*
+
+🚚 ${t("Order Type","ऑर्डरचा प्रकार")}: ${orderTypeText}`;
+
+  if (type === "delivery"){
+    msg += `\n📍 ${t("Address","पत्ता")}: ${address}`;
+  }
+  if (note){
+    msg += `\n✍️ ${t("Message on cake","केकवरचा संदेश")}: ${note}`;
+  }
+
+  msg += `\n\n${t("Please confirm my order. Thank you! 🙏","कृपया माझी ऑर्डर कन्फर्म करा. धन्यवाद! 🙏")}`;
+
+  window.open(waLink(msg), "_blank");
+});
+
+/* ================================================================
+   🔗  OTHER WHATSAPP / CONTACT LINKS
+   ================================================================ */
+const generalWaMsg = () =>
+  t("Hello! I would like to order a cake. 🎂", "नमस्कार! मला केक ऑर्डर करायचा आहे. 🎂");
+
+["heroWhatsApp","bandOrder","contactWhatsApp","contactWaBtn","footerWhatsApp","floatWhatsApp"]
+.forEach(id => {
+  const el = document.getElementById(id);
+  if (el){
+    el.href = waLink(generalWaMsg());
+    el.target = "_blank";
+    el.rel = "noopener";
+  }
+});
+
+/* Contact info from CONFIG */
+(function applyConfig(){
+  const phoneLink = "tel:" + CONFIG.phoneLink;
+  document.querySelectorAll('a[href^="tel:"]').forEach(a => {
+    a.href = phoneLink;
+    if (a.dataset.config === "phone") a.textContent = CONFIG.phone;
+  });
+  document.getElementById("contactWhatsApp").textContent = CONFIG.phone;
+
+  const mapBtn = document.getElementById("mapBtn");
+  mapBtn.href = CONFIG.mapUrl;
+
+  const insta = document.getElementById("contactInsta");
+  insta.href = CONFIG.instagram;
+  insta.textContent = CONFIG.instaName;
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+})();
+
+/* ================================================================
+   🍔  MOBILE NAV
+   ================================================================ */
+const nav = document.getElementById("nav");
+document.getElementById("hamburger").addEventListener("click", () => {
+  nav.classList.toggle("open");
+});
+nav.querySelectorAll("a").forEach(a => {
+  a.addEventListener("click", () => nav.classList.remove("open"));
+});
+
+/* ================================================================
+   🔔  TOAST
+   ================================================================ */
+let toastTimer;
+function showToast(message, type){
+  const toast = document.getElementById("toast");
+  toast.textContent = message;
+  toast.className = "toast show" + (type ? " " + type : "");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => {
+    toast.className = "toast" + (type ? " " + type : "");
+  }, 2600);
+}
+
+/* ================================================================
+   🚀  INIT
+   ================================================================ */
+applyLanguage();
+</script>
+
+</body>
+</html>
